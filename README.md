@@ -48,7 +48,12 @@ r(t) = r_0 + v*t
 
         end
         
-        
+i get the following Frequencies:
+[Picture1.pdf](https://github.com/Oddl42/Radar_Target_Generation_and_Detection/files/9235276/Picture1.pdf)
+
+[Picture2.pdf](https://github.com/Oddl42/Radar_Target_Generation_and_Detection/files/9235273/Picture2.pdf)
+
+
 The 2D CFAR i implemented the follwowing way:
         % *%TODO* :
         %Select the number of Training Cells in both the dimensions.
@@ -109,6 +114,12 @@ The 2D CFAR i implemented the follwowing way:
                 end
             end
         end
+        % *%TODO* :
+        % The process above will generate a thresholded block, which is smaller 
+        %than the Range Doppler Map as the CUT cannot be located at the edges of
+        %matrix. Hence,few cells will not be thresholded. To keep the map size same
+        % set those values to 0. 
+        RDM_CARF(RDM_CARF ~=0 & RDM_CARF ~=1) = 0; 
 
 
 with the following settings for
@@ -120,9 +131,5 @@ Offset for SNR = 10
 
 i get very good Outputs for the CFAR.
 
-% *%TODO* :
-% The process above will generate a thresholded block, which is smaller 
-%than the Range Doppler Map as the CUT cannot be located at the edges of
-%matrix. Hence,few cells will not be thresholded. To keep the map size same
-% set those values to 0. 
-RDM_CARF(RDM_CARF ~=0 & RDM_CARF ~=1) = 0; 
+
+[Picture3.pdf](https://github.com/Oddl42/Radar_Target_Generation_and_Detection/files/9235255/Picture3.pdf)
